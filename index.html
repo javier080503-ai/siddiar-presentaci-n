@@ -88,7 +88,7 @@
         .visual-container { display: flex; justify-content: center; align-items: center; gap: 30px; width: 100%; }
         .visual-card { background: rgba(40, 0, 60, 0.4); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 15px; padding: 20px; width: 350px; display: flex; flex-direction: column; align-items: center; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9); transition: all 0.3s; }
         .visual-card:hover { border-color: var(--text-white); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9); transform: translateY(-5px); }
-        .visual-image { width: 100%; height: 180px; background: linear-gradient(135deg, var(--deep-purple) 0%, var(--bg-black) 100%); border-radius: 10px; display: flex; justify-content: center; align-items: center; margin-bottom: 15px; overflow: hidden; border: 1px dashed var(--light-purple); position: relative; }
+        .visual-image { width: 100%; height: 180px; background: linear-gradient(135deg, var(--deep-purple) 0%, var(--bg-black) 100%); borderRadius: 10px; display: flex; justify-content: center; align-items: center; margin-bottom: 15px; overflow: hidden; border: 1px dashed var(--light-purple); position: relative; }
         .visual-image i { font-size: 70px; color: var(--text-white); text-shadow: 2px 2px 0px rgba(0, 0, 0, 1); }
         .visual-card h3 { margin: 0; color: var(--light-purple); font-size: 20px; text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 0 10px rgba(120, 76, 144, 0.8); }
         .visual-divider { width: 50px; height: 50px; background: var(--text-white); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 24px; color: var(--bg-black); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8); z-index: 10; }
@@ -648,5 +648,25 @@
             }
         }
     </script>
+
+    <!-- NUEVO SCRIPT DE AJUSTE DE ESCALA PARA PANTALLAS PEQUEÑAS -->
+    <script>
+        function adjustScale() {
+            const frame = document.querySelector('.presentation-wrapper');
+            if (!frame) return;
+            const windowWidth = window.innerWidth;
+            const scale = windowWidth / 1024;
+            
+            if (windowWidth < 1024) {
+                frame.style.transform = `scale(${scale})`;
+                frame.style.transformOrigin = 'top center';
+            } else {
+                frame.style.transform = 'scale(1)';
+            }
+        }
+        window.addEventListener('resize', adjustScale);
+        window.addEventListener('load', adjustScale);
+    </script>
+
 </body>
 </html>
