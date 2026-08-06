@@ -39,7 +39,7 @@
 
         /* --- TRACK DE DIAPOSITIVAS --- */
         .slide-track {
-            display: flex; width: calc(1024px * 8); height: 100%;
+            display: flex; width: calc(1024px * 9); height: 100%;
             transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
@@ -107,10 +107,12 @@
         .phone-mockup { width: 240px; height: 480px; background: var(--bg-black); border: 8px solid #2d3436; border-radius: 20px; position: relative; box-shadow: 0 0 30px rgba(255, 255, 255, 0.2), inset 0 0 20px rgba(0,0,0,0.8); overflow: hidden; display: flex; justify-content: center; align-items: center; flex-direction: column; }
         .phone-mockup::before { content: ''; position: absolute; top: 15px; left: 50%; transform: translateX(-50%); width: 14px; height: 14px; background: #0a0a0a; border-radius: 50%; z-index: 10; box-shadow: inset 0 0 4px rgba(255,255,255,0.3); }
         .phone-screen { width: 100%; height: 100%; background: linear-gradient(180deg, var(--deep-purple) 0%, var(--bg-black) 100%); position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; color: var(--light-purple); text-align: center; padding: 20px; box-sizing: border-box; }
+        
+        /* Ajuste de animación reducida para íconos */
         .ar-hologram, .icon-box i, .img-slot i { animation: float-logo 3.5s ease-in-out infinite; }
         @keyframes float-logo { 
             0% { transform: translateY(0px); filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3)); } 
-            50% { transform: translateY(-12px); filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.6)); } 
+            50% { transform: translateY(-5px); filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.5)); } 
             100% { transform: translateY(0px); filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3)); } 
         }
 
@@ -180,6 +182,26 @@
         .icon-box.clickable-software { border: 2px solid white; cursor: pointer; transition: 0.3s; background: rgba(120, 76, 144, 0.3); }
         .icon-box.clickable-software:hover { background: var(--light-purple); transform: scale(1.03); box-shadow: 0 0 20px white; }
 
+       /* =========================================
+           NUEVO: DISEÑO SLIDE 6: CIBERSEGURIDAD
+           ========================================= */
+        .slide-cybersecurity { align-items: center; justify-content: center; text-align: center; }
+        /* Hacemos más pequeños los títulos y sus márgenes solo en esta diapositiva */
+        .slide-cybersecurity .problem-title { margin-bottom: 10px; font-size: 38px; }
+        .slide-cybersecurity .problem-text { margin-bottom: 15px; font-size: 18px; }
+        
+        /* Reducimos la separación (gap) y los márgenes de la cuadrícula */
+        .cyber-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; width: 100%; max-width: 850px; margin-top: 5px; }
+        
+        /* Achicamos el relleno interno (padding) de cada tarjeta */
+        .cyber-card { background: rgba(40, 0, 60, 0.3); backdrop-filter: blur(8px); border: 1px solid rgba(120, 76, 144, 0.4); border-left: 5px solid var(--light-purple); border-radius: 12px; padding: 15px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.5); transition: all 0.3s; }
+        .cyber-card:hover { border-color: var(--text-white); transform: translateY(-3px); box-shadow: 0 15px 30px rgba(120, 76, 144, 0.5); background: rgba(120, 76, 144, 0.15); }
+        
+        /* Hacemos ligeramente más pequeños los iconos y textos internos */
+        .cyber-card i { font-size: 30px; color: var(--text-white); text-shadow: 0 0 10px var(--light-purple); margin-bottom: 8px; }
+        .cyber-card h3 { color: var(--light-purple); font-size: 18px; font-family: 'Playfair Display', serif; margin: 0 0 5px 0; text-shadow: 0 2px 5px black; }
+        .cyber-card p { color: var(--text-gray); font-size: 13px; margin: 0; line-height: 1.4; }
+
         /* --- LIGHTBOX OVERLAY --- */
         .lightbox-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(5px); z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
         .lightbox-overlay.active { opacity: 1; pointer-events: auto; }
@@ -191,7 +213,7 @@
         .lightbox-close:hover { color: var(--light-purple); transform: scale(1.2); }
         .lightbox-header-text { color: white; font-family: 'Playfair Display', serif; font-size: 38px; margin-bottom: 25px; text-shadow: 2px 4px 10px black; font-weight: bold; display: none; letter-spacing: 2px; }
 
-        /* --- GALERÍA COLLAGE (NUEVO) --- */
+        /* --- GALERÍA COLLAGE --- */
         .lightbox-gallery { display: none; flex-direction: row; gap: 15px; justify-content: center; align-items: center; max-width: 95vw; }
         .lightbox-gallery img { height: 65vh; border-radius: 12px; border: 2px solid var(--light-purple); transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1); box-shadow: 0 10px 30px rgba(0,0,0,0.8); object-fit: contain; background: #000; }
         .lightbox-gallery img:hover { transform: scale(1.05); z-index: 10; }
@@ -204,7 +226,7 @@
         .software-modal-close:hover { color: #ff4757; transform: scale(1.1); }
 
         /* =========================================
-           DISEÑO SLIDE 6: CONCLUSIÓN
+           DISEÑO SLIDE 7: CONCLUSIÓN
            ========================================= */
         .slide-conclusion { align-items: center; justify-content: center; text-align: center; }
         .conclusion-grid { display: flex; gap: 30px; margin-top: 25px; width: 100%; justify-content: center; }
@@ -220,7 +242,7 @@
         .conclusion-footer strong { color: var(--light-purple); font-weight: 700; text-shadow: 0 0 15px rgba(120, 76, 144, 0.9); font-size: 22px; }
 
         /* =========================================
-           DISEÑO SLIDE 7: BIBLIOGRAFÍA
+           DISEÑO SLIDE 8: BIBLIOGRAFÍA
            ========================================= */
         .slide-bibliography { align-items: center; justify-content: flex-start; padding-top: 40px; }
         .biblio-title { font-family: 'Playfair Display', serif; font-size: 45px; margin: 0 0 35px 0; color: var(--text-white); border-bottom: 2px solid var(--light-purple); padding-bottom: 10px; text-shadow: 0 4px 10px rgba(0, 0, 0, 0.9); }
@@ -236,7 +258,7 @@
         .biblio-text a:hover { color: var(--text-white); text-shadow: 0 0 8px var(--light-purple); }
 
         /* =========================================
-           DISEÑO SLIDE 8: CIERRE / GRACIAS
+           DISEÑO SLIDE 9: CIERRE / GRACIAS
            ========================================= */
         .slide-thanks { align-items: center; justify-content: center; text-align: center; }
         .thanks-content { display: flex; flex-direction: column; align-items: center; }
@@ -282,6 +304,7 @@
         <div class="presentation-frame">
             <div class="slide-track" id="slideTrack">
                 
+                <!-- SLIDE 1: PORTADA -->
                 <div class="slide slide-cover">
                     <div class="image-placeholder"><img src="siddiar.png" alt="Logo SIDDIAR" class="siddiar-logo"></div>
                     <div class="header-section"><h1>SIDDIAR</h1><h2>PLATAFORMA DE GESTIÓN DE MUSEOS CON REALIDAD AUMENTADA</h2></div>
@@ -291,6 +314,7 @@
                     </div>
                 </div>
 
+                <!-- SLIDE 2: PROBLEMA -->
                 <div class="slide slide-problem-v3">
                     <h1 class="problem-title">Planteamiento del Problema</h1>
                     <p class="problem-text">En la actualidad, las visitas a museos y sitios arqueológicos se llegan a sentir monótonas y poco interactivas; además, si se requieren guías presenciales, el costo suele ser muy elevado.</p>
@@ -301,6 +325,7 @@
                     </div>
                 </div>
 
+                <!-- SLIDE 3: OBJETIVO GENERAL -->
                 <div class="slide slide-objective">
                     <div class="obj-left">
                         <h1>Objetivo General</h1>
@@ -317,6 +342,7 @@
                     </div>
                 </div>
 
+                <!-- SLIDE 4: OBJETIVOS ESPECÍFICOS -->
                 <div class="slide slide-specific">
                     <div class="specific-left"><h1>Objetivos <span>Específicos</span></h1></div>
                     <div class="specific-right">
@@ -329,6 +355,7 @@
                     </div>
                 </div>
 
+                <!-- SLIDE 5: METODOLOGÍA -->
                 <div class="slide slide-methodology">
                     <div class="methodology-base-view" id="methodBaseView">
                         <h1 class="method-title">Metodología Aplicada: SUM</h1>
@@ -362,6 +389,36 @@
                     </div>
                 </div>
 
+                <!-- SLIDE 6: CIBERSEGURIDAD (RESTAURADA) -->
+                <div class="slide slide-cybersecurity">
+                    <h1 class="problem-title">Ciberseguridad Aplicada</h1>
+                    <p class="problem-text">Implementación de estándares de protección de datos e integridad del sistema.</p>
+                    
+                    <div class="cyber-grid">
+                        <div class="cyber-card">
+                            <i class="fab fa-google"></i>
+                            <h3>Autenticación con Google API</h3>
+                            <p>Integración de inicio de sesión centralizado para un acceso confiable, minimizando los riesgos de credenciales débiles.</p>
+                        </div>
+                        <div class="cyber-card">
+                            <i class="fas fa-lock"></i>
+                            <h3>Criptografía SHA-256</h3>
+                            <p>Aplicación de algoritmos de hashing seguros para la protección absoluta de contraseñas y datos personales.</p>
+                        </div>
+                        <div class="cyber-card">
+                            <i class="fas fa-database"></i>
+                            <h3>Base de Datos Estructurada</h3>
+                            <p>Arquitectura bien constituida con sanitización estricta de consultas, eliminando vulnerabilidades de inyección SQL.</p>
+                        </div>
+                        <div class="cyber-card">
+                            <i class="fas fa-user-shield"></i>
+                            <h3>Privacy by Design</h3>
+                            <p>Gestión de datos enfocada en la recolección mínima necesaria, priorizando la privacidad e integridad original.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 7: CONCLUSIÓN -->
                 <div class="slide slide-conclusion">
                     <h1 class="problem-title">Conclusión</h1>
                     <div class="conclusion-grid">
@@ -386,6 +443,7 @@
                     </div>
                 </div>
 
+                <!-- SLIDE 8: BIBLIOGRAFÍA -->
                 <div class="slide slide-bibliography">
                     <h1 class="biblio-title">Bibliografía</h1>
                     <div class="biblio-grid">
@@ -434,6 +492,7 @@
                     </div>
                 </div>
 
+                <!-- SLIDE 9: GRACIAS -->
                 <div class="slide slide-thanks">
                     <div class="thanks-content">
                         <img src="siddiar.png" alt="Logo SIDDIAR" class="thanks-logo">
@@ -458,7 +517,7 @@
     <script>
         // --- NAVEGACIÓN GLOBAL POR TECLADO ---
         let currentSlide = 0;
-        const totalSlides = 8; 
+        const totalSlides = 9; 
         const track = document.getElementById('slideTrack');
 
         function moveSlide(direction) {
@@ -469,9 +528,8 @@
             const displacement = currentSlide * -1024;
             track.style.transform = `translateX(${displacement}px)`;
 
-            // Animación del Muñeco Caminando
             const guide = document.getElementById('walkingGuide');
-            const newLeft = 45 + (currentSlide * 133); 
+            const newLeft = 45 + (currentSlide * 116); 
             guide.style.left = newLeft + 'px';
 
             guide.classList.add('moving');
@@ -527,25 +585,35 @@
                     "Análisis de costos de hardware, software y personal.",
                     "Historias de usuario.",
                     "Diagramas de casos de uso y requerimientos del sistema.",
-                    "Modelo de negocios."
+                    "Modelo de negocios.",
+                    "Costos de desarrollo.",
+                    "Retorno de inversión."
                 ],
                 rightHTML: `
-                    <div class="icon-grid cols-2" style="height: 100%; align-content: center; gap: 20px;">
-                        <div class="icon-box clickable-software" onclick="openLightbox('modelo de negocios.jpeg', false)" style="border: 2px solid var(--light-purple);">
-                            <i class="fas fa-briefcase" style="font-size: 35px; margin-bottom: 10px;"></i>
-                            <span style="font-size: 13px;">Ver Modelo</span>
+                    <div class="icon-grid cols-2" style="height: 100%; align-content: center; gap: 15px;">
+                        <div class="icon-box clickable-software" onclick="openLightbox('costos_proyecto.png', false)">
+                            <i class="fas fa-file-invoice-dollar" style="font-size: 35px; margin-bottom: 8px;"></i>
+                            <span style="font-size: 13px;">Costos</span>
                         </div>
-                        <div class="icon-box">
-                            <i class="fas fa-users" style="font-size: 35px; margin-bottom: 10px;"></i>
+                        <div class="icon-box clickable-software" onclick="openLightbox('modelo_b2b.jpeg', false)">
+                            <i class="fas fa-briefcase" style="font-size: 35px; margin-bottom: 8px;"></i>
+                            <span style="font-size: 13px;">Modelo B2B</span>
+                        </div>
+                        <div class="icon-box clickable-software" onclick="openLightbox('modelo_b2c.jpeg', false)">
+                            <i class="fas fa-store" style="font-size: 35px; margin-bottom: 8px;"></i>
+                            <span style="font-size: 13px;">Modelo B2C</span>
+                        </div>
+                        <div class="icon-box clickable-software" onclick="openLightbox('retorno_inversion.png', false)">
+                            <i class="fas fa-chart-line" style="font-size: 35px; margin-bottom: 8px;"></i>
+                            <span style="font-size: 13px;">Retorno (ROI)</span>
+                        </div>
+                        <div class="icon-box" style="padding: 15px 5px;">
+                            <i class="fas fa-users" style="font-size: 35px; margin-bottom: 8px;"></i>
                             <span style="font-size: 13px;">Historias</span>
                         </div>
-                        <div class="icon-box">
-                            <i class="fas fa-sitemap" style="font-size: 35px; margin-bottom: 10px;"></i>
-                            <span style="font-size: 13px;">Casos de Uso</span>
-                        </div>
-                        <div class="icon-box">
-                            <i class="fas fa-clipboard-list" style="font-size: 35px; margin-bottom: 10px;"></i>
-                            <span style="font-size: 13px;">Requisitos</span>
+                        <div class="icon-box" style="padding: 15px 5px;">
+                            <i class="fas fa-sitemap" style="font-size: 35px; margin-bottom: 8px;"></i>
+                            <span style="font-size: 13px;">Casos Uso</span>
                         </div>
                     </div>`
             },
@@ -553,14 +621,13 @@
                 title: "Iteración 3: Arquitectura y Modelado Lógico",
                 items: [
                     "Arquitectura de información y diagrama de flujo.",
-                    "Diagrama entidad relación.",
-                    "Diagrama de paquetes y diagrama de clases.",
-                    "Sketch, wireframe y mockup."
+                    "Diagrama relacional.",
+                    "Diagrama de paquetes y diagrama de clases."
                 ],
                 rightHTML: `
                     <div style="display:flex; flex-direction:column; gap:15px; width:100%;">
                         <div class="img-slot" onclick="openLightbox('base de datos.jpeg', false)">
-                            <i class="fas fa-database"></i><span>Diagrama ER</span>
+                            <i class="fas fa-database"></i><span>Diagrama Relacional</span>
                         </div>
                         <div class="img-slot" onclick="openLightbox('arquitectura de información.jpg', false)">
                             <i class="fas fa-network-wired"></i><span>Arquitectura</span>
@@ -571,6 +638,7 @@
                 title: "Iteración 4: Interfaz, Desarrollo y Validación",
                 items: [
                     "Diseño UI/UX.",
+                    "Sketch, wireframe y mockup.",
                     "Fase de Codificación.",
                     "Estudio de usabilidad y Fase de Pruebas."
                 ],
